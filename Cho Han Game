@@ -1,0 +1,51 @@
+import random
+
+#initial amount of money
+money = 100
+
+#The objective of this game is to get right wether the number obtained with the sum of two rolled dice  is even or odd. 
+def Cho_Han (bet_cho, Cho_odd_even):
+    
+    print("Chosen type of number for Cho Han game: " + Cho_odd_even)
+    print("Bet money for Cho Han game: " + str(bet_cho))
+
+    random_dice1 = random.randint(1,6)
+    random_dice2 = random.randint(1,6)
+
+    print("Number obtained on first dice: "+ str(random_dice1))
+    print("Number obtained on second dice: "+ str(random_dice2))
+
+    sum_dice = random_dice1 + random_dice2
+
+    print("The result of the sum between these two values is: " + str(sum_dice))
+
+#using modulo to know if the number is odd or even
+    if sum_dice%2==0:
+
+        print("The result of the sum is an even number.")
+
+        if Cho_odd_even=="Even" or Cho_odd_even=="even":
+            print("You won "+ str(bet_cho) + "$ on the Cho Han game. Congratulations!")
+            return bet_cho
+        else:
+            print("You lost "+ str(bet_cho) + "$ on the Cho Han game. Try again.")
+            return -bet_cho
+    else:
+        print("The result of the sum is an odd number.")
+
+        if Cho_odd_even=="Odd" or Cho_odd_even=="odd":
+            print("You won "+ str(bet_cho) + "$ on the Cho Han game. Congratulations!")
+            return bet_cho
+        else:
+            print("You lost "+ str(bet_cho) + "$ on the Cho Han game. Try again.")
+            return -bet_cho
+
+def money_after(bet_cho, Cho_odd_even):
+    
+    cho_bet = Cho_Han(bet_cho, Cho_odd_even)
+
+    money2 = money+cho_bet
+
+    print("Money owned after the game: "+str(money2)+"$.")
+
+money_after(10, "even")
