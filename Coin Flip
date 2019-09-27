@@ -1,0 +1,49 @@
+import random
+
+#initial amount of money
+money = 100
+
+#first function: coin flipping game 
+def coin_flipping_game(bet_coin, coin_face):
+
+    #code to show the player what he has chosen
+    print("Chosen face: " + coin_face)
+    print("Bet money for coin flipping game: " + str(bet_coin))
+
+    #asking the computer choose a rabdom number
+    random_face = random.randint(1,2)
+    
+#Here I'm assigning each possible choice with a number so that afterwards I can compare it with the number randomly generated
+    if coin_face == "Heads" or coin_face== "Heads!" or coin_face == "Heads please":
+        coin_face=1
+    else:
+        coin_face=2
+
+    if random_face==1:
+        print("Coin face obtained after flip: Heads")
+        if random_face==coin_face:
+            print("You won " + str(bet_coin) + "$ on the coin flipping game. Congratulations!")
+            return bet_coin
+        else:
+            print("You lost "+ str(bet_coin) + "$ on the coin flipping game. Try again.")
+            return -bet_coin
+    
+    if random_face==2:
+        print("Coin face obtained after flip: Tails")
+        if random_face==coin_face:
+            print("You won "+ str(bet_coin) + "$ on the coin flipping game. Congratulations!")
+            return bet_coin
+        else:
+            print("You lost "+ str(bet_coin) + "$ on the coin flipping game. Try again.")
+            return -bet_coin
+    
+
+def money_after(bet_coin, coin_face):
+    
+    coin_bet = coin_flipping_game(bet_coin, coin_face)
+
+    money2 = money+coin_bet
+
+    print("Money owned by the player after the game: "+str(money2)+"$.")
+
+money_after(10, "Heads")
